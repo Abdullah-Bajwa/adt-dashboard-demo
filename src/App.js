@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   HashRouter,
-  Routes,
+  Switch,
   Route,
   useNavigate,
   useParams,
@@ -58,7 +58,7 @@ function App() {
   };
 
   return (
-    <Routes>
+    <Switch>
       <Route
         path="/"
         element={<Home isLoggedIn={isLoggedIn} logout={logout} />}
@@ -82,7 +82,7 @@ function App() {
         element={<Login login={login} isLoggedIn={isLoggedIn} />}
       />
       <Route path="*" element={<NotFound />} />
-    </Routes>
+    </Switch>
   );
 }
 
