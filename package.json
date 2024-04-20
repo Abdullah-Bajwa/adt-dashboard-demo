@@ -1,6 +1,6 @@
 {
   "name": "al_durran_tech",
-  "homepage": "https://ai.cybernator.net",
+  "homepage": "https://blink-technologies.github.io/adt-dashboard-demo/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "gh-pages": "^6.0.0",
+    "github-pages": "^3.0.2",
     "js-cookie": "^3.0.5",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
