@@ -103,6 +103,7 @@ nav li .dropdown a:hover {
   position: relative;
   display: inline-block;
   color: white;
+  cursor: pointer;
 }
 
 .badge {
@@ -333,6 +334,12 @@ nav li .dropdown a:hover {
   box-sizing: border-box;
 }
 
+.map-container-dashboard {
+  height: calc(100% + 60px);
+  width: calc(100% + 60px);
+  margin: -30px;
+}
+
 .top-left h1 {
   margin-bottom: 10px;
 }
@@ -561,7 +568,6 @@ input[type="checkbox"] {
 }
 button {
   display: block;
-  width: 100%;
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -714,7 +720,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  height: 80%;
+  height: 90%;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1377,4 +1383,164 @@ tr:hover {
   display: inline;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+/**************NOTIFICATION BAR STYLES**********************/
+.notif-bar-container {
+  position: absolute;
+  top: 10vh;
+  height: 80vh;
+  max-height: 0;
+  right: 10vh;
+  width: 20vw;
+  background-color: rgba(25, 25, 25, 0.1);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  display: flex;
+  border-radius: 10px;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  z-index: 9999;
+}
+
+.notif-bar-container.active {
+  max-height: 80vh;
+  opacity: 1;
+}
+
+.notif-bar {
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.notif-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.notif-bar-list {
+  display: block;
+}
+
+.notif-item {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-item.entry {
+  background-color: #9fdf9f; /* Green */
+}
+
+.notif-item.exit {
+  background-color: #fde58d; /* Yellowish/Orangish */
+}
+
+.notif-item.sos {
+  background-color: #ff7f7f; /* Dark Orange/Reddish */
+}
+
+.timestamp {
+  font-weight: lighter;
+  margin-right: 5px;
+  font-size: 9px;
+  width: 100%;
+  text-align: end;
+}
+
+.text {
+  word-wrap: break-word;
+}
+
+/*********************USER DETAILS PAGE************************/
+.user-details-container {
+  margin: 40px;
+  min-width: calc(100% - 40px);
+  font-family: Arial, sans-serif;
+}
+
+.user-details-info {
+  margin-top: 50px;
+  width: 40%;
+}
+
+.user-details-label {
+  font-weight: bold;
+  display: block;
+}
+
+.user-details-value {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-details-edit-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-details-modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.user-details-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.user-details-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.user-details-close:hover,
+.user-details-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.user-details-save-btn {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.user-details-not-found {
+  color: red;
 }

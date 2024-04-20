@@ -89,52 +89,33 @@ const data = [
   },
 ];
 
-const TableComponent = () => {
+const LogsTableComponent = ({ data }) => {
   const navigate = useNavigate();
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "action",
-      headerName: "Action",
-      width: 130,
-      renderCell: (params) => (
-        <Button
-          onClick={() => openUserDetails(params.id)}
-          variant="contained"
-          color="primary"
-        >
-          Details
-        </Button>
-      ),
-    },
-    {
-      field: "name",
-      headerName: "Name",
+      field: "user",
+      headerName: "User",
       width: 150,
     },
     {
-      field: "surname",
-      headerName: "Surname",
+      field: "time",
+      headerName: "Time",
       width: 150,
     },
     {
-      field: "badge_id",
-      headerName: "Badge ID",
+      field: "type",
+      headerName: "Type",
       width: 110,
     },
     {
-      field: "designation",
-      headerName: "Designation",
-      description: "This column has a value getter and is not sortable.",
-      width: 160,
+      field: "text",
+      headerName: "Text",
+      width: 110,
     },
   ];
 
-  const openUserDetails = (id) => {
-    console.log(id);
-    navigate(`/user-details/${id}`);
-  };
   return (
     <DataGrid
       rows={data}
@@ -153,4 +134,4 @@ const TableComponent = () => {
   );
 };
 
-export default TableComponent;
+export default LogsTableComponent;

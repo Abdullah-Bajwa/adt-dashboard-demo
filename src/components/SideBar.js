@@ -1,11 +1,7 @@
-import { TbPlugConnected } from "react-icons/tb";
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { FaStore } from "react-icons/fa";
-import { LiaCoinsSolid } from "react-icons/lia";
-import { FiSettings } from "react-icons/fi";
+import { IoIosStats } from "react-icons/io";
+import { RiRoadMapFill } from "react-icons/ri";
+import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlineFileSearch } from "react-icons/ai";
-import { MdPolicy } from "react-icons/md";
-import { FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -15,50 +11,30 @@ const SideBar = () => {
         <li>
           <Link className="link" to="/">
             <div className="sidebar-icon">
-              <HiOutlineSquares2X2 />
+              <RiRoadMapFill />
             </div>
             <div className="no-wrap" href="/dashboard">
-              Overview
+              Dashboard
             </div>
           </Link>
         </li>
         <li>
           <Link className="link" to="/connectors">
             <div className="sidebar-icon">
-              <TbPlugConnected />
+              <IoIosStats />
             </div>
             <div className="no-wrap" href="/dashboard/avatars">
-              AI Connectors
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to="/store">
-            <div className="sidebar-icon">
-              <FaStore />
-            </div>
-            <div className="no-wrap" href="/dashboard/avatars">
-              Store
+              Stats
             </div>
           </Link>
         </li>
         <li>
           <Link className="link" to="/assets">
             <div className="sidebar-icon">
-              <LiaCoinsSolid />
+              <BsFillPeopleFill />
             </div>
             <div className="no-wrap" href="/dashboard/avatars">
-              Assets
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to="/settings">
-            <div className="sidebar-icon">
-              <FiSettings />
-            </div>
-            <div className="no-wrap" href="/dashboard/avatars">
-              Settings
+              Users
             </div>
           </Link>
         </li>
@@ -67,23 +43,7 @@ const SideBar = () => {
             <div className="sidebar-icon">
               <AiOutlineFileSearch />
             </div>
-            <div href="/dashboard/investigate">Investigate</div>
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to="/policies">
-            <div className="sidebar-icon">
-              <MdPolicy />
-            </div>
-            <div href="/dashboard/policies">Policies</div>
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to="/users">
-            <div className="sidebar-icon">
-              <FaUserFriends />
-            </div>
-            <div href="/dashboard/users">Users</div>
+            <div href="/dashboard/investigate">Logs</div>
           </Link>
         </li>
       </ul>

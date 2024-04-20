@@ -2,24 +2,14 @@ import {
   Chart,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
   Title,
   Tooltip,
   Legend,
+  BarElement,
 } from "chart.js";
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
+import { Bar } from "react-chartjs-2";
+Chart.register(CategoryScale, LinearScale, Title, Tooltip, Legend, BarElement);
 const getShading = (color) => {
   const div = document.createElement("div");
   div.style.backgroundColor = color;
@@ -29,7 +19,7 @@ const getShading = (color) => {
   return rgbaColor.replace("rgb", "rgba").replace(")", `, ${0.2})`);
 };
 
-const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
+const ComplexBarGraph = ({ graphTitle, dataSetIn }) => {
   // Sample data for the line chart
   const currentDate = new Date();
   let dateArray = [];
@@ -54,12 +44,7 @@ const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
   }
 
   let dataSetOut = [];
-  const template = {
-    fill: true,
-    tension: 0,
-    pointRadius: 0,
-    pointStyle: "line",
-  };
+
   dataSetIn.forEach((model) => {
     let paddedActivity = model.activity.slice(); // Create a copy of the original array
 
@@ -71,11 +56,11 @@ const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
     }
 
     const tempObj = {
-      ...template,
       data: paddedActivity,
       label: model.name,
       borderColor: model.color,
       backgroundColor: getShading(model.color),
+      borderWidth: 1,
     };
 
     dataSetOut.push(tempObj);
@@ -147,7 +132,7 @@ const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
         className="graph-container-big"
         style={{ position: "relative", flexGrow: "1" }}
       >
-        <Line data={data} options={options} className="custom-legend" />
+        <Bar data={data} options={options} className="custom-legend" />
         <div className="graph-summary">
           <h3>{summaryTitle}</h3>
           {dataSetIn.map((item) => (
@@ -157,11 +142,11 @@ const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
             >
               <div
                 style={{
-                  width: "10px", // Bullet point width
-                  height: "10px", // Bullet point height
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "10px",
                   backgroundColor: item.color,
-                  marginRight: "10px", // Spacing between bullet point and text
+                  marginRight: "10px",
                 }}
               />
               <div style={{ flexGrow: 1, marginRight: "10px" }}>
@@ -178,4 +163,4 @@ const ComplexLineGraph = ({ graphTitle, dataSetIn }) => {
   );
 };
 
-export default ComplexLineGraph;
+export default ComplexBarGraph;

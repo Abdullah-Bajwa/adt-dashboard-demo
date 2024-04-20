@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import { LoginCallback, Security } from "@okta/okta-react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import Home from "./layouts/Home";
 import Login from "./pages/Login";
 import NotFound from "./components/NotFound";
@@ -14,18 +19,18 @@ import Marketplace from "./pages/Marketplace";
 import RequestSignup from "./pages/RequestSignup";
 import Cookies from "js-cookie";
 import Signup from "./pages/Signup";
-import OctaLogin from "./pages/OctaLogin";
-import Profile from "./pages/Profile";
-import oktaAuth from "./oktaConfig";
 import Policies from "./pages/Policies";
 import Users from "./pages/Users";
+import UserDetails from "./pages/UserDetails.js";
+import Logs from "./pages/Logs";
 
 function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const UserDetailsPage = () => {
+    const { userId } = useParams();
 
-  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    navigate(originalUri || "/okta");
+    return <UserDetails userId={userId} />;
   };
 
   useEffect(() => {
@@ -53,35 +58,31 @@ function App() {
   };
 
   return (
-    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home isLoggedIn={isLoggedIn} logout={logout} />}
-        >
-          <Route index element={<Dashboard />} />
-          <Route path="/connectors" element={<AiConnectors />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/assets" element={<Assets />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/investigate" element={<Investigate />} />
-          <Route path="/policies" element={<Policies />} />
-          <Route path="/users" element={<Users />} />
-        </Route>
-        <Route path="/okta" exact={true} element={<OctaLogin />} />
-        <Route path="/okta/callback" element={<LoginCallback />} />
-        <Route path="/okta/profile" element={<Profile />} />
+    <Routes>
+      <Route
+        path="/"
+        element={<Home isLoggedIn={isLoggedIn} logout={logout} />}
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="/connectors" element={<AiConnectors />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/assets" element={<Assets />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/investigate" element={<Logs />} />
+        <Route path="/policies" element={<Policies />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/user-details/:userId" element={<UserDetailsPage />} />
+      </Route>
 
-        <Route path="/signup" element={<RequestSignup />} />
-        <Route path="/complete-signup" element={<Signup />} />
-        <Route path="/market" element={<Marketplace />} />
-        <Route
-          path="/login"
-          element={<Login login={login} isLoggedIn={isLoggedIn} />}
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Security>
+      <Route path="/signup" element={<RequestSignup />} />
+      <Route path="/complete-signup" element={<Signup />} />
+      <Route path="/market" element={<Marketplace />} />
+      <Route
+        path="/login"
+        element={<Login login={login} isLoggedIn={isLoggedIn} />}
+      />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
