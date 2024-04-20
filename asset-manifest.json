@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/adt-demo.avantlabstech.com/static/css/main.a6736480.css",
-    "main.js": "/adt-demo.avantlabstech.com/static/js/main.3e2de1b6.js",
-    "static/js/787.305b5dec.chunk.js": "/adt-demo.avantlabstech.com/static/js/787.305b5dec.chunk.js",
-    "index.html": "/adt-demo.avantlabstech.com/index.html",
-    "main.a6736480.css.map": "/adt-demo.avantlabstech.com/static/css/main.a6736480.css.map",
-    "main.3e2de1b6.js.map": "/adt-demo.avantlabstech.com/static/js/main.3e2de1b6.js.map",
-    "787.305b5dec.chunk.js.map": "/adt-demo.avantlabstech.com/static/js/787.305b5dec.chunk.js.map"
+    "main.css": "/static/css/main.a6736480.css",
+    "main.js": "/static/js/main.8736af5e.js",
+    "static/js/787.305b5dec.chunk.js": "/static/js/787.305b5dec.chunk.js",
+    "index.html": "/index.html",
+    "main.a6736480.css.map": "/static/css/main.a6736480.css.map",
+    "main.8736af5e.js.map": "/static/js/main.8736af5e.js.map",
+    "787.305b5dec.chunk.js.map": "/static/js/787.305b5dec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a6736480.css",
-    "static/js/main.3e2de1b6.js"
+    "static/js/main.8736af5e.js"
   ]
 }
